@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Hệ thống điểm danh bằng khuôn mặt </title>
+
+		<link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body background="static/img/banner.jpg">
+    <div class="container">
+        <h3 align="center">KẾT QUẢ ĐIỂM DANH BẰNG KHUÔN MẶT</h3>
+        <form action = "{{ url_for('finish') }}"  method="post" name="finish" >
+        <div>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">MSSV </th>
+                  <th scope="col">HỌ VÀ TÊN</th>
+                  <th scope="col">ĐIỂM DANH</th>
+                  <th scope="col">NGÀY</th>
+                </tr>
+              </thead>
+              <tbody>
+               {% for row in rows %}
+                    <tr>
+                       <td>{{row["ID"]}}</td>
+                       <td>{{row["MSSV"]}}</td>
+                       <td> {{ row["FULLNAME"]}}</td>
+                       <td>{{row['MUSTER']}}</td>
+                         <td>{{row['DAY']}}</td>
+                    </tr>
+                 {% endfor %}
+
+
+                </tr>
+              </tbody>
+            </table>
+        </div>
+          <div class="row ">
+				   <div class="col-sm-12">
+					   <div class="mx-auto text-white text-center margin-bottom-30">
+						 <button name="btnFinish" type="submit" class="btn btn-primary text-center" style="width:300px; border-radius:20px;">Xuất kết quả</button>
+					   </div>
+				   </div>
+			   </div>
+
+        </form>
+    </div>
+
+
+
+
+	<script src="assets/dest/vendors/jqueryui/jquery-ui-1.10.4.custom.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</body>
+</html>

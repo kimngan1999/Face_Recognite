@@ -1,0 +1,97 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/html">
+	<head>
+		<meta charset="utf-8">
+		<title>He thong diem danh </title>
+		<link rel="stylesheet" type="text/css" href="static/nhapthongtin.css">
+			<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<script language="javascript"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.6.0/firebase-analytics.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.6.0/firebase-app.js"></script>
+	</head>
+
+	<body  background="static/img/banner.jpg">
+			<form  >
+		<header>
+
+		<div>
+			<h5 align="center">BÁO CÁO TỐT NGHIỆP</h5>
+			<h4 align="center">VIỆN KỸ THUẬT CÔNG NGHỆ</h4>
+			<p align="center" ><span style="color: #0101DF; font-size: 20px;font-weight: bold; ">HỆ THỐNG HỖ TRỢ ĐIỂM DANH BẰNG KHUÔN MẶT</span></p>
+		</div>
+			<div class="container p-0" >
+				<nav class="navbar navbar-dark bg-dark rounded">
+	        <a class="navbar-brand">
+	        	<i class="fas fa-camera"></i>
+	        	<strong>Face Detection</strong>
+	        </a>
+	      </nav>
+			</div>
+		</header>
+		<section>
+			<center><div >
+			  <img id="video" class="bottomright" class="center" style="width: 600px;height: 350px;" src="{{ url_for('video_recognite') }}"  >
+
+			</div></center>
+				<img style="display:none"  id="video-detect" src="">
+			<form >
+			<div class="container-fluid margin-top-40" >
+<!--				<input  type="hidden" name ="active_predict" value="1"/>-->
+
+			     <br>
+
+			   <div class="row">
+				   <div class="col-sm-12">
+					   <div class="mx-auto text-white text-center margin-bottom-40">
+						   <a name="btnResult" href ="/complete" role="button" class="btn btn-primary text-center" style="width:300px; border-radius:20px;">Kết thúc</a>
+					   </div>
+				   </div>
+			   </div>
+			   <br>
+				   <div class="row">
+				   <div class="col-sm-12">
+					   <div class="mx-auto text-white text-center margin-bottom-40">
+						   <a id="stop"   onclick="stop()"  class="btn btn-primary text-center" style="width:300px; border-radius:20px;">Dừng</a>
+					   </div>
+				   </div>
+			   </div>
+				<br>
+				  <div class="row">
+				   <div class="col-sm-12">
+					   <div class="mx-auto text-white text-center margin-bottom-40">
+						   <a name="btnContinue"  onclick="continue()" role="button" class="btn btn-primary text-center" style="width:300px; border-radius:20px;">Tiếp Tục </a>
+					   </div>
+				   </div>
+			   </div>
+
+
+		   </div>
+			</div>
+			</form>
+
+
+			</div>
+		</section>
+
+		</form>
+
+		<script>
+
+			function stop(){
+			 	var el = document.getElementById("video");
+    			el.src = "";
+			}
+			function continue(){
+			 	var el = document.getElementById("video");
+    			el.src = "{{ url_for('video_recognite') }}";
+    			window.location.reload();
+			}
+		</script>
+
+	</body>
+
+
+</html>

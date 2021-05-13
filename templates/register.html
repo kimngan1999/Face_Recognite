@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Ghi danh</title>
+		<link rel="stylesheet" type="text/css" href="static/nhapthongtin.css">
+			<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<script language="javascript"></script>
+	</head>
+
+	<body background="static/img/banner.jpg">
+		<form action = "{{ url_for('ghidanh') }}"  method="post" name="ghidanh" >
+		<header>
+
+			<h2 align="center" style="color:red">BÁO CÁO TỐT NGHIỆP</h2>
+			<h4 align="center">VIỆN KỸ THUẬT - CÔNG NGHỆ</h4>
+	        <center><a class="navbar-brand">
+	        	<i class="fas fa-camera"></i>
+	        	<strong>Face Detection</strong>
+	        </a></center>
+		</header>
+
+		<section>
+			<p >{{ alert }}</p>
+			<div class="container">
+			 <center> <img class="bottomright" class="center" style="width: 550px;height: 330px;"  src="{{ url_for('video_feed') }}"></center>
+
+			</div>
+			<form >
+			<div class="container-fluid" style="margin-top: 20px" >
+				<center>
+					<p  > <span style="color:DodgerBlue1;   font-size: 30px;">Mã số sinh viên :</span><input type="text" name ="mssv"/></p>
+				</center>
+
+				<input  type="hidden" name ="active_predict" value="1"/>
+
+			   <div class="row ">
+				   <div class="col-sm-12">
+					   <div class="mx-auto text-white text-center margin-bottom-40">
+						 <button name="btnStart" type="submit" class="btn btn-primary text-center" style="width:300px; border-radius:20px;">Bắt đầu</button>
+					   </div>
+				   </div>
+			   </div>
+			   <br>
+
+			   <div class="row">
+				   <div class="col-sm-12">
+					   <div class="mx-auto text-white text-center margin-bottom-40">
+						   <button name="btnReset" type="reset" role="button" class="btn btn-primary text-center" style="width:300px; border-radius:20px;">Làm mới</button>
+					   </div>
+				   </div>
+			   </div>
+			   <br>
+
+
+		   </div>
+			</div>
+			</form>
+			</div>
+		</section>
+		</form>
+	</body>
+
+</html>
